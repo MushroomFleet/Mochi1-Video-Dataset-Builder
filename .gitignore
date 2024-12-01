@@ -1,0 +1,36 @@
+# Python virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Video files
+*.mp4
+*.mov
+
+# Generated caption files
+*.txt
+
+# Temporary video processing files
+*.mpy
+*.temp.*
+*.log
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System files
+.DS_Store
+Thumbs.db
