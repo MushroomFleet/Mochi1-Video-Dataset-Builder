@@ -1,4 +1,5 @@
 # Video Preprocessor for Mochi-1 Training
+[preview](https://raw.githubusercontent.com/MushroomFleet/Mochi1-Video-Dataset-Builder/refs/heads/main/images/demoUI.png)
 
 A local video preprocessing tool designed specifically for preparing videos for the Mochi-1 model fine-tuning pipeline. This tool processes videos into the exact format required by Mochi-1, including proper segmentation, resolution, and frame rate. For detailed information about the Mochi-1 fine-tuning process, see our [Fine-tuning Guide](tutorial/mochi-finetuning-guide.md).
 
