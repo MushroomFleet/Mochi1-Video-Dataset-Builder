@@ -49,8 +49,7 @@ demo = gr.Interface(
         gr.File(
             file_count="multiple",
             label="Upload Videos",
-            file_types=["video/mp4", "video/quicktime"],
-            description="Upload MP4 or MOV files to process"
+            file_types=["avi", "mp4", "mov"]
         ),
         gr.Slider(
             minimum=1.0,
@@ -64,7 +63,7 @@ demo = gr.Interface(
     outputs=gr.File(
         label="Download Processed Videos",
         file_count="single",
-        type="file"
+        type="filepath"
     ),
     title="Mochi-1 Video Preprocessor",
     description="""
@@ -89,11 +88,8 @@ demo = gr.Interface(
     
     All files will be returned in a single ZIP archive.
     """,
-    examples=[
-        [["sample.mp4"], 2.5]
-    ],
     theme=gr.themes.Soft()
 )
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", share=True)
+    demo.launch()  # Now only accessible locally
