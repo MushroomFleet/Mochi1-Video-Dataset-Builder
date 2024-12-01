@@ -30,9 +30,11 @@ A local video preprocessing tool designed specifically for preparing videos for 
 project_root/
 ├── src/
 │   ├── __init__.py
-│   └── preprocess_videos.py
+│   ├── preprocess_videos.py
+│   └── gradio_app.py
 ├── install.bat          # First-time setup script
 ├── preprocess_videos.bat # Video preprocessing script
+├── start_preprocessor_ui.bat # Web interface script
 ├── requirements.txt     # Python dependencies
 ├── README.md           # This file
 └── .gitignore
@@ -118,11 +120,6 @@ This tool is specifically designed to prepare videos for the Mochi-1 fine-tuning
 1. Preprocesses videos to exact requirements
 2. Creates all necessary files in the proper structure
 3. For detailed fine-tuning instructions, refer to our [Fine-tuning Guide](tutorial/mochi-finetuning-guide.md)
-
-## Additional Notes
-
-- The tool is specifically designed for Mochi-1 training pipeline
-- Processing time varies based on hardware specifications
 
 ## Support
 

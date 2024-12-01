@@ -9,7 +9,7 @@ echo Installing requirements...
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
-echo Installation complete! You can now use the video captioner.
+echo Installation complete! You can now use the video preprocessor.
 echo To activate the environment in the future, run: venv\Scripts\activate.bat
 
 pause
