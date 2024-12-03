@@ -3,7 +3,8 @@
 
 A local video preprocessing tool designed specifically for preparing videos for the Mochi-1 model fine-tuning pipeline. This tool processes videos into the exact format required by Mochi-1, including proper segmentation, resolution, and frame rate. For detailed information about the Mochi-1 fine-tuning process, see our [Fine-tuning Guide](tutorial/mochi-finetuning-guide.md). I also provide this ComfyUI Workflow which uses Llava-OneVision-Qwen2 to process the first frame of each 2.5 second video, along with my "image-to-video" LLM base prompt. This produces detailed video captions for each video file [Caption-Tools-OneVision-Video-Captioner-v30](https://github.com/MushroomFleet/DJZ-Workflows/blob/main/Foda_Flux/Captioning%20Tools/Caption-Tools-OneVision-Video-Captioner-v30.json) using the video filename in .txt format. 
 Then i added batched operation support [Caption-Tools-OneVision-Video-Captioner-v50](https://github.com/MushroomFleet/DJZ-Workflows/blob/main/Foda_Flux/Captioning%20Tools/Caption-Tools-OneVision-Video-Captioner-v50.json).
-![Demo WorkflowV50](raw.githubusercontent.com/MushroomFleet/Mochi1-Video-Dataset-Builder/main/images/vidCaptioner-V50.png)
+
+![Workflow](raw.githubusercontent.com/MushroomFleet/Mochi1-Video-Dataset-Builder/main/images/vidCaptioner-V50.png)
 
 ## System Requirements
 
