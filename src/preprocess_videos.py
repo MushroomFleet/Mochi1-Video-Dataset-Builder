@@ -21,7 +21,13 @@ def validate_system_requirements():
 @click.argument("output_folder", type=click.Path(dir_okay=True))
 @click.option("--duration", "-d", type=float, default=2.5, 
               help="Target duration in seconds (default: 2.5)")
-def preprocess_videos(input_folder, output_folder, duration):
+@click.option("--width", "-w", type=int, default=848,
+              help="Target width in pixels (default: 848)")
+@click.option("--height", "-h", type=int, default=480,
+              help="Target height in pixels (default: 480)")
+@click.option("--fps", "-f", type=int, default=30,
+              help="Target framerate (default: 30)")
+def preprocess_videos(input_folder, output_folder, duration, width, height, fps):
     """
     Preprocess videos for Mochi-1 training by standardizing duration and resolution.
     Splits longer videos into multiple segments of specified duration.
@@ -29,11 +35,6 @@ def preprocess_videos(input_folder, output_folder, duration):
     INPUT_FOLDER: Path to folder containing input videos
     OUTPUT_FOLDER: Path where processed videos will be saved
     """
-    # Constants for Mochi-1 requirements
-    TARGET_WIDTH = 848
-    TARGET_HEIGHT = 480
-    TARGET_FPS = 30
-    
     input_path = Path(input_folder)
     output_path = Path(output_folder)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -49,7 +50,7 @@ def preprocess_videos(input_folder, output_folder, duration):
         return
 
     print(f"\nProcessing {len(video_files)} videos...")
-    print(f"Target format: {TARGET_WIDTH}x{TARGET_HEIGHT}, {duration}s, {TARGET_FPS}fps")
+    print(f"Target format: {width}x{height}, {duration}s, {fps}fps")
     
     for file_path in tqdm(video_files, desc="Processing videos"):
         try:
@@ -80,7 +81,7 @@ def preprocess_videos(input_folder, output_folder, duration):
                 segment = video.subclip(start_time, end_time)
 
                 # Calculate dimensions to maintain aspect ratio
-                target_ratio = TARGET_WIDTH / TARGET_HEIGHT
+                target_ratio = width / height
                 current_ratio = video.w / video.h
 
                 if current_ratio > target_ratio:
@@ -95,8 +96,8 @@ def preprocess_videos(input_folder, output_folder, duration):
                     final = segment.crop(y1=y1, height=new_height)
 
                 # Resize to target resolution
-                final = final.resize((TARGET_WIDTH, TARGET_HEIGHT))
-                final = final.set_fps(TARGET_FPS)
+                final = final.resize((width, height))
+                final = final.set_fps(fps)
 
                 # Configure output settings
                 output_params = {
